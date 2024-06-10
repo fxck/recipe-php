@@ -1,16 +1,12 @@
 zerops:
   - setup: apacheapi
     build:
-      base:
-        - php@8.3
-      ports:
-        - port: 80
-          httpSupport: true
+      base: php@8.3
       buildCommands:
         - |
           cd src
           composer install --optimize-autoloader --no-dev
-      deploy:
+      deployFiles:
         - ./src/~/index.php
         - ./src/~/.htaccess
         - ./src/~/vendor
@@ -29,16 +25,12 @@ zerops:
 
   - setup: nginxapi
     build:
-      base:
-        - php@8.3
-      ports:
-        - port: 80
-          httpSupport: true
+      base: php@8.3
       buildCommands:
         - |
           cd src
           composer install --optimize-autoloader --no-dev
-      deploy:
+      deployFiles:
         - ./src/~/index.php
         - ./src/~/vendor
     run:
