@@ -2,6 +2,7 @@ zerops:
   - setup: apacheapi
     build:
       base: php@8.3
+      os: ubuntu
       buildCommands:
         - |
           cd src
@@ -12,6 +13,7 @@ zerops:
         - ./src/~/vendor
     run:
       base: php-apache@8.3
+      os: ubuntu
       envVariables:
         DB_NAME: db
         DB_HOST: db
@@ -26,6 +28,7 @@ zerops:
   - setup: nginxapi
     build:
       base: php@8.3
+      os: ubuntu
       buildCommands:
         - |
           cd src
@@ -35,6 +38,7 @@ zerops:
         - ./src/~/vendor
     run:
       base: php-nginx@8.3
+      os: ubuntu
       envVariables:
         DB_NAME: db
         DB_HOST: db
